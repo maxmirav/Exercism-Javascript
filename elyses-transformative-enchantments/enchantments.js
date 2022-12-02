@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 
 /**
  * Double every card in the deck.
@@ -8,7 +8,8 @@
  * @returns {number[]} deck with every card doubled
  */
 export function seeingDouble(deck) {
-  throw new Error('Implement the seeingDouble function');
+  let doubledDeck = deck.map((cardValue) => cardValue * 2);
+  return doubledDeck;
 }
 
 /**
@@ -18,9 +19,10 @@ export function seeingDouble(deck) {
  *
  * @returns {number[]} deck with triplicate 3s
  */
-export function threeOfEachThree(deck) {
-  throw new Error('Implement the threeOfEachThree function');
+ export function threeOfEachThree(deck) {
+  
 }
+
 
 /**
  * Extracts the middle two cards from a deck.
