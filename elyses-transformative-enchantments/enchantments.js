@@ -20,7 +20,14 @@ export function seeingDouble(deck) {
  * @returns {number[]} deck with triplicate 3s
  */
  export function threeOfEachThree(deck) {
-  
+  return deck.reduce((acc, currentCard) => {
+    if(currentCard === 3) {
+      acc.push(3, 3, 3);
+    } else {
+      acc.push(currentCard);
+    }
+    return acc;
+  }, []); 
 }
 
 
@@ -33,7 +40,8 @@ export function seeingDouble(deck) {
  * @returns {number[]} deck with only two middle cards
  */
 export function middleTwo(deck) {
-  throw new Error('Implement the middleTwo function');
+  let halfsies = deck.length / 2;
+  return deck.slice( halfsies - 1, halfsies + 1);
 }
 
 /**
@@ -45,7 +53,12 @@ export function middleTwo(deck) {
  */
 
 export function sandwichTrick(deck) {
-  throw new Error('Implement the sandwichTrick function');
+  let first = deck.shift();
+  let second = deck.pop();
+
+  let halfIndex = deck.length / 2;
+  deck.splice(halfIndex, 0, second, first);
+  return deck;
 }
 
 /**
@@ -56,7 +69,7 @@ export function sandwichTrick(deck) {
  * @returns {number[]} deck with only 2s
  */
 export function twoIsSpecial(deck) {
-  throw new Error('Implement the twoIsSpecial function');
+  return deck.filter(value => value === 2);
 }
 
 /**
@@ -67,7 +80,7 @@ export function twoIsSpecial(deck) {
  * @returns {number[]} ordered deck
  */
 export function perfectlyOrdered(deck) {
-  throw new Error('Implement the perfectlyOrdered function');
+  return deck.sort((a, b) => a - b);
 }
 
 /**
@@ -78,5 +91,5 @@ export function perfectlyOrdered(deck) {
  * @returns {number[]} reordered deck
  */
 export function reorder(deck) {
-  throw new Error('Implement the reorder function');
+  return deck.reverse();
 }
